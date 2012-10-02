@@ -32,12 +32,11 @@ fi
 
 # add html5 project 
 if [ "${HTML5_PROJECT_SCM}" = "git" ]; then
-    mkdir -p projects/${HTML5_FRAMEWORK}    && \
-    (cd projects/${HTML5_FRAMEWORK}         && \
-        git clone ${HTML5_PROJECT_URL})     && \
-    (cd projects/${HTML5_FRAMEWORK}         && \
-    git submodule init                      && \
-    git submodule update)
+    (cd projects/                                         && \
+        git clone ${HTML5_PROJECT_URL} ${HTML5_FRAMEWORK} && \
+        cd  ${HTML5_FRAMEWORK}                            && \
+        git submodule init                                && \
+        git submodule update)
 fi
 
 # initialize git submodules
@@ -46,7 +45,7 @@ git submodule init && git submodule update
 # fetch apache common codecs
 
 mkdir -p ${COMMON_CODEC_DIR}
-checksum=$(md5sum ${COMMON_CODEC_DIR}/${COMMON_CODEC_ARCHIVE}|cut -d ' ' -f 1)
+checksum=$(md5sum ${COMMON_CODEC_DIR}/${COMMON_CODEC_ARCHIVE} 2> /dev/null |cut -d ' ' -f 1)
 
 if [ "${checksum}" != "${COMMON_CODEC_MD5}" ]; then
     (cd ${COMMON_CODEC_DIR} && wget -q ${COMMON_CODEC_URL})
