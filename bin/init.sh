@@ -10,6 +10,7 @@ if [ ! `which git` ]; then
 fi
 
 # checkout html5 project 
+mkdir projects
 if [ "${HTML5_PROJECT_SCM}" = "git" ]; then
     (cd projects/                                                           && \
         git clone ${HTML5_PROJECT_GIT_URL} ${HTML5_FRAMEWORK} 2> /dev/null  && \
