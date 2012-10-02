@@ -35,11 +35,11 @@ if [ "${HTML5_PROJECT_SCM}" = "git" ]; then
     (cd projects/                                                       && \
         git clone ${HTML5_PROJECT_URL} ${HTML5_FRAMEWORK} 2> /dev/null  && \
         cd  ${HTML5_FRAMEWORK}                                          && \
-        git submodule init --update)
+        git submodule update --init)
 fi
 
 # initialize git submodules
-git submodule init --update
+git submodule update --init
 
 # fetch apache common codecs
 
@@ -51,7 +51,7 @@ while [ "$(md5sum ${COMMON_CODEC_DIR}/${COMMON_CODEC_ARCHIVE} 2> /dev/null \
 done
 
 # untar it
-(cd ${COMMON_CODEC_DIR} && tar xvzf ${COMMON_CODEC_ARCHIVE})
+(cd ${COMMON_CODEC_DIR} && tar xzf ${COMMON_CODEC_ARCHIVE})
 
 # copy it to corodva
 (mkdir -p ${CORDOVA_ANDROID_DIR}/framework/libs/ && \
