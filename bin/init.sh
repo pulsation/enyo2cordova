@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # Load configuration
-source config/cordova.conf
-source config/html5-project.conf
+source config/config.sh
 
 # check utility dependancies and configuration
 if [ ! `which git` ]; then
