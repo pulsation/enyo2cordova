@@ -45,11 +45,11 @@ git submodule init && git submodule update
 # fetch apache common codecs
 
 mkdir -p ${COMMON_CODEC_DIR}
-checksum=$(md5sum ${COMMON_CODEC_DIR}/${COMMON_CODEC_ARCHIVE} 2> /dev/null |cut -d ' ' -f 1)
-
-if [ "${checksum}" != "${COMMON_CODEC_MD5}" ]; then
+while [ "$(md5sum ${COMMON_CODEC_DIR}/${COMMON_CODEC_ARCHIVE} 2> /dev/null \
+        |cut -d ' ' -f 1)" != "${COMMON_CODEC_MD5}" ]; do
+    rm -f ${COMMON_CODEC_DIR}/${COMMON_CODEC_ARCHIVE}
     (cd ${COMMON_CODEC_DIR} && wget -q ${COMMON_CODEC_URL})
-fi
+done
 
 # untar it
 (cd ${COMMON_CODEC_DIR} && tar xvzf ${COMMON_CODEC_ARCHIVE})
