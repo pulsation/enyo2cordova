@@ -20,8 +20,6 @@ if [ ! `which ant` ]; then
     exit 1
 fi
 
-source bin/init.sh
-
 # fetch apache common codecs
 
 mkdir -p ${COMMON_CODEC_DIR}

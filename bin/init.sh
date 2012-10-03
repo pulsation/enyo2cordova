@@ -3,22 +3,14 @@
 # Load configuration
 source config/config.sh
 
-# check utility dependancies and configuration
-if [ ! `which git` ]; then
-    echo "git is needed to proceed." >&2;
-    exit 1
-fi
+# Initialize HTML5 projects
+for html5_framework in ${HTML5_FRAMEWORKS}; do
+    echo "Initializing ${html5_framework} project."
+    source bin/init-html5-${html5_framework}.sh
+done;
 
-# checkout html5 project 
-mkdir projects
-if [ "${HTML5_PROJECT_SCM}" = "git" ]; then
-    (cd projects/                                                           && \
-        git clone ${HTML5_PROJECT_GIT_URL} ${HTML5_FRAMEWORK} 2> /dev/null  && \
-        cd  ${HTML5_FRAMEWORK}                                              && \
-        git checkout ${HTML5_PROJECT_GIT_BRANCH}                            && \
-        git submodule update --init)
-fi
-
-# initialize git submodules
-git submodule update --init
-
+# Initialize mobile targets
+for mobile_target in ${MOBILE_TARGETS}; do
+    echo "Initializing ${mobile_target} target."
+    source bin/init-${mobile_target}.sh
+done;
