@@ -23,11 +23,11 @@ fi
 # fetch apache common codecs
 
 mkdir -p ${COMMON_CODEC_DIR}
-#while [ "$(md5sum ${COMMON_CODEC_DIR}/${COMMON_CODEC_ARCHIVE} 2> /dev/null \
-#        |cut -d ' ' -f 1)" != "${COMMON_CODEC_MD5}" ]; do
+while [ "$(md5sum ${COMMON_CODEC_DIR}/${COMMON_CODEC_ARCHIVE} 2> /dev/null \
+        |cut -d ' ' -f 1)" != "${COMMON_CODEC_MD5}" ]; do
     rm -f ${COMMON_CODEC_DIR}/${COMMON_CODEC_ARCHIVE}
     (cd ${COMMON_CODEC_DIR} && wget ${COMMON_CODEC_URL})
-#done
+done
 
 # untar it
 (cd ${COMMON_CODEC_DIR} && tar xzf ${COMMON_CODEC_ARCHIVE})
