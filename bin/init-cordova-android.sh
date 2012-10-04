@@ -23,11 +23,11 @@ fi
 # fetch apache common codecs
 
 mkdir -p ${COMMON_CODEC_DIR}
-while [ "$(md5sum ${COMMON_CODEC_DIR}/${COMMON_CODEC_ARCHIVE} 2> /dev/null \
-        |cut -d ' ' -f 1)" != "${COMMON_CODEC_MD5}" ]; do
+#while [ "$(md5sum ${COMMON_CODEC_DIR}/${COMMON_CODEC_ARCHIVE} 2> /dev/null \
+#        |cut -d ' ' -f 1)" != "${COMMON_CODEC_MD5}" ]; do
     rm -f ${COMMON_CODEC_DIR}/${COMMON_CODEC_ARCHIVE}
-    (cd ${COMMON_CODEC_DIR} && wget -q ${COMMON_CODEC_URL})
-done
+    (cd ${COMMON_CODEC_DIR} && wget ${COMMON_CODEC_URL})
+#done
 
 # untar it
 (cd ${COMMON_CODEC_DIR} && tar xzf ${COMMON_CODEC_ARCHIVE})
@@ -39,7 +39,7 @@ ${CORDOVA_ANDROID_DIR}/framework/libs/)
 
 # Build the phonegap jar lib
 (cd ${CORDOVA_ANDROID_DIR}/framework && \
-    android update project -p . -t android-${CORDOVA_ANDROID_VERSION} && ant jar)
+    android update project -p . -t android-${CORDOVA_ANDROID_VERSION} --subprojects && ant jar)
 
 # Install dependancies
 (cd ${CORDOVA_ANDROID_DIR}/bin && \
