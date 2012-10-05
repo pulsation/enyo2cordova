@@ -28,7 +28,7 @@ This project consists in a set of scripts that wrap tools already provided by fr
 
 * bin/ contains initialization and deployment scripts.
 * config/ contains configuration files.
-* projects/enyo contains the project based on enyo if imported from git. By default, it is the [enyo bootplate](https://github.com/enyojs/enyo/wiki/Bootplate).
+* projects/enyo contains the project based on enyo if imported from git. By default, it is a modified version of the [enyo bootplate](https://github.com/enyojs/enyo/wiki/Bootplate).
 * projects/android contains the cordova generated project for android (ios target will come come later).
 
 Implemented features
