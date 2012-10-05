@@ -1,5 +1,8 @@
 #!/bin/bash
 
+ENYO2CORDOVA_DIR=$(dirname $(readlink -f $0))/..
+cd ${ENYO2CORDOVA_DIR}
+
 # Load configuration
 source config/config.sh
 
