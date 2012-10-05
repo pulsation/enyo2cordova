@@ -1,7 +1,7 @@
 #!/bin/bash
 
-ENYO2CORDOVA_DIR=$(dirname $(readlink -f $0))/..
-cd ${ENYO2CORDOVA_DIR}
+cd `dirname $0`/.. 
+ENYO2CORDOVA_DIR=$PWD
 
 # Load configuration
 source config/config.sh
