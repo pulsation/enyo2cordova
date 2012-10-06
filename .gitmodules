@@ -1,3 +1,0 @@
-[submodule "targets/cordova/android"]
-	path = targets/cordova/android
-	url = https://github.com/apache/incubator-cordova-android.git
