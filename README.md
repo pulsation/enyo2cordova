@@ -24,7 +24,7 @@ Modularity, in order to let a door to other frameworks open, is also kept in min
 Design
 ------
 
-This project consists in a set of scripts that wrap tools already provided by frameworks it depends on. Dependancies are directly managed using git submodules.
+This project consists in a set of scripts that wrap tools already provided by frameworks it depends on.
 
 * bin/ contains initialization and deployment scripts.
 * config/ contains configuration files.
