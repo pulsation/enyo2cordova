@@ -15,7 +15,3 @@ if [ "${HTML5_PROJECT_SCM}" = "git" ]; then
         git checkout ${HTML5_PROJECT_GIT_BRANCH}                            && \
         git submodule update --init)
 fi
-
-# initialize git submodules
-git submodule update --init
-

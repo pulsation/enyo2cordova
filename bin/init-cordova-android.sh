@@ -21,7 +21,7 @@ if [ ! `which ant` ]; then
 fi
 
 # fetch cordova android sources
-git clone ${CORDOVA_ANDROID_DIR} ${CORDOVA_ANDROID_GIT_URL}
+git clone ${CORDOVA_ANDROID_GIT_URL} ${CORDOVA_ANDROID_DIR}
 (cd ${CORDOVA_ANDROID_DIR} && git checkout ${CORDOVA_ANDROID_GIT_BRANCH})
 
 # fetch apache common codecs
