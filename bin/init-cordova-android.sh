@@ -51,5 +51,5 @@ ${CORDOVA_ANDROID_DIR}/framework/libs/)
 
 # create cordova android project
 (cd ${CORDOVA_ANDROID_DIR} && \
-    ./bin/create ../../../${ANDROID_PROJECT_DIR})
+    ./bin/create ../../../${ANDROID_PROJECT_DIR} ${PACKAGE_NAME} ${PROJECT_NAME})
 
